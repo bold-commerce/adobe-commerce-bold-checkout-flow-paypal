@@ -7,6 +7,6 @@
     </type>
     <type name="Bold\Checkout\Model\Order\InitOrderFromQuote">
         <plugin name="bold_checkout_paypal_update_flow"
-                type="Bold\CheckoutFlowPaypal\Plugin\UpdateFlowPlugin"/>
+                type="Bold\CheckoutFlowPaypal\Plugin\Checkout\Model\InitOrderFromQuote\UpdateFlowPlugin"/>
     </type>
 </config>
