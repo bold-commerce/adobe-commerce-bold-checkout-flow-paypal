@@ -1,12 +1,11 @@
 <?php
 
-namespace Bold\CheckoutFlowPaypal\Plugin;
+namespace Bold\CheckoutFlowPaypal\Plugin\Checkout\Model\InitOrderFromQuote;
 
 use Bold\Checkout\Model\Order\InitOrderFromQuote;
 use Bold\CheckoutFlowPaypal\Model\Config;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Api\Data\CartInterface;
-use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Update flow_id to use PayPal flow if functionality enabled.
