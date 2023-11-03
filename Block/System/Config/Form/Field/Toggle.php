@@ -91,9 +91,10 @@ class Toggle extends Field
      * Get button link url.
      *
      * @return string
+     * @throws LocalizedException
      */
     public function getToggleUrl(): string {
-        $websiteId = $this->getRequest()->getParam('website');
+        $websiteId = $this->getWebsiteId();
 
         return $this->getUrl('bold_paypal/toggle', ['website' => $websiteId]);
     }
@@ -105,10 +106,20 @@ class Toggle extends Field
      * @throws LocalizedException
      */
     public function isEnabled(): bool {
-        $websiteId = (int)($this->getRequest()->getParam('website')
-            ?? $this->storeManager->getWebsite(true)->getId()
-        );
+        $websiteId = $this->getWebsiteId();
 
         return $this->config->getIsPaypalFlowEnabled($websiteId);
+    }
+
+    /**
+     * Get website id.
+     *
+     * @return int
+     * @throws LocalizedException
+     */
+    private function getWebsiteId(): int {
+        return (int)($this->getRequest()->getParam('website')
+            ?? $this->storeManager->getWebsite(true)->getId()
+        );
     }
 }
