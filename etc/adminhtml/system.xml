@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="checkout">
+            <group id="bold_checkout_paypal" translate="label" sortOrder="115" showInDefault="1" showInWebsite="1">
+                <label>Bold Checkout PayPal Integration</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1">
+                    <label>Is PayPal Flow Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Bold\CheckoutMeta\Block\System\Config\Form\Field\Disabled</frontend_model>
+                    <comment>
+                        <![CDATA[Can be enabled or disabled using the button below.]]></comment>
+                </field>
+                <field id="toggle" translate="label" type="button" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Toggle</frontend_model>
+                    <comment>
+                        <![CDATA[Enable or disable Bold Checkout PayPal Flow.]]></comment>
+                </field>
+                <field id="version" translate="label" type="note" sortOrder="1000" showInDefault="1" showInWebsite="1">
+                    <label>Module Version</label>
+                    <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Version</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

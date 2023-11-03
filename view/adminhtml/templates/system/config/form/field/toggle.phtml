@@ -1,0 +1,15 @@
+<?= $block->getButtonHtml() ?>
+
+<script type="text/x-magento-init">
+    {
+        "#paypal_flow_toggle": {
+            "Bold_CheckoutFlowPaypal/js/paypal-toggle": {
+                "url": "<?= $block->getToggleUrl(); ?>",
+                "enabled": "<?= $block->isEnabled(); ?>",
+                "title": "<?= /* @escapeNotVerified */ __('Activating the Checkout with PayPal flow will deactivate all active Bold-hosted flows') ?>",
+                "content": "<?= /* @escapeNotVerified */ __('The Checkout with PayPal flow replaces your Bold-hosted checkout experiences. At any time, you may deactivate the Checkout with Paypal Flow in order to reactive your Bold-hosted flows.') ?>",
+                "alert": "<?= /* @escapeNotVerified */ __('Something went wrong') ?>"
+            }
+        }
+    }
+</script>
