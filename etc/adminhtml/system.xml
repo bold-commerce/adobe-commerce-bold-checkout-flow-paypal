@@ -9,7 +9,7 @@
                        showInWebsite="1">
                     <label>Is PayPal Flow Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <frontend_model>Bold\CheckoutMeta\Block\System\Config\Form\Field\Disabled</frontend_model>
+                    <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Disabled</frontend_model>
                     <comment>
                         <![CDATA[Can be enabled or disabled using the button below.]]></comment>
                 </field>
