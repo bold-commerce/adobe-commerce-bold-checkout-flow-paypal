@@ -31,7 +31,7 @@ class UpdateFlowPlugin
      *
      * @param InitOrderFromQuote $subject
      * @param CartInterface $quote
-     * @param string $flowId
+     * @param string|null $flowId
      * @return array
      * @throws LocalizedException
      */
