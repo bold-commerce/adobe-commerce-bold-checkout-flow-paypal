@@ -38,7 +38,7 @@ class UpdateFlowPlugin
     public function beforeInit(InitOrderFromQuote $subject, CartInterface $quote, string $flowId = null): array
     {
         $websiteId = (int)$quote->getStore()->getWebsiteId();
-        if ($this->config->isPaypalFlowEnabled($websiteId)) {
+        if ($this->config->getIsPaypalFlowEnabled($websiteId)) {
             $flowId = $this->config->getFlowId($websiteId);
         }
 

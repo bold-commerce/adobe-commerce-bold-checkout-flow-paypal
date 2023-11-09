@@ -65,9 +65,8 @@ class Config
      * @return bool
      * @throws LocalizedException
      */
-    public function getIsPaypalFlowEnabled(int $websiteId): bool
-    {
-        return (bool)$this->configManagement->getValue(
+    public function getIsPaypalFlowEnabled(int $websiteId): bool {
+        return $this->configManagement->isSetFlag(
             self::PATH_IS_PAYPAL_FLOW_ENABLED,
             $websiteId
         );
@@ -90,20 +89,6 @@ class Config
         );
         $this->cacheTypeList->cleanType('config');
         $this->scopeConfig->clean();
-    }
-
-    /**
-     * Is PayPal Flow enabled.
-     *
-     * @param int $websiteId
-     * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    public function isPaypalFlowEnabled(int $websiteId): bool {
-        return $this->configManagement->isSetFlag(
-            self::PATH_IS_PAYPAL_FLOW_ENABLED,
-            $websiteId
-        );
     }
 
     /**
