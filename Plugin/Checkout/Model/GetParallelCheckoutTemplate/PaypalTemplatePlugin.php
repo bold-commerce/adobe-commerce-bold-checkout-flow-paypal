@@ -50,7 +50,7 @@ class PaypalTemplatePlugin
     {
         $websiteId = (int)$this->storeManager->getWebsite()->getId();
 
-        return $this->config->isPaypalFlowEnabled($websiteId)
+        return $this->config->getIsPaypalFlowEnabled($websiteId)
             ? self::PAYPAL_CHECKOUT_TEMPLATE
             : $proceed();
     }
