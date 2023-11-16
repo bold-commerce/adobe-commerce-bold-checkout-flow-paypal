@@ -98,7 +98,8 @@ After installing the extension, enable the PayPal Checkout Flow from your Adobe 
 4. Expand the **Bold Checkout PayPal Integration** section.
 5. If the **Is PayPal Checkout Flow Enabled?** field is set to **No**, click the **Enable** button.
 6. Click **OK** in the confirmation pop-up.
-7. Once the page reloads, **Is PayPal Checkout Flow Enabled?** is set to **Yes**. The flow is successfully enabled for your store.
+7. Once the page reloads, **Is PayPal Checkout Flow Enabled?** is set to **Yes**.
+8. Click **Save Config**. The flow is successfully enabled for your store.
 
 **NOTE:** The PayPal Checkout Flow uses the `Bold_Checkout` extension's "Parallel Checkout" Checkout type. Enabling the PayPal Checkout Flow in the Adobe Commerce admin changes the store's **Bold Checkout Type** to "Parallel".
 
@@ -113,6 +114,7 @@ The **Disable** button allows you to deactivate the PayPal Checkout Flow.
 4. Expand the **Bold Checkout PayPal Integration** section.
 5. If the **Is PayPal Checkout Flow Enabled?** field is set to **Yes**, click the **Disable** button.
 6. Once the page reloads, **Is PayPal Checkout Flow Enabled?** is set to **No**.
+7. Click **Save Config**.
 
 **NOTE:** The **Bold Checkout Type** is still set to "Parallel" after disabling the PayPal Checkout Flow. Remember to change your Bold Checkout Type to previous settings if necessary.
 
