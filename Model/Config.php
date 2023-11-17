@@ -18,6 +18,7 @@ class Config
 {
     private const PATH_TYPE = 'checkout/bold_checkout_base/type';
     private const PATH_IS_PAYPAL_FLOW_ENABLED = 'checkout/bold_checkout_paypal/is_enabled';
+    private const PATH_IS_INSTANT_ON_PRODUCT_PAGE_ENABLED = 'checkout/bold_checkout_paypal/is_instant_product';
     private const PATH_PAYPAL_FLOW_ID = 'checkout/bold_checkout_paypal/flow_id';
 
     /**
@@ -122,5 +123,19 @@ class Config
         );
         $this->cacheTypeList->cleanType('config');
         $this->scopeConfig->clean();
+    }
+
+    /**
+     * Get if the Instant Checkout button is enabled on Product page.
+     *
+     * @param int $websiteId
+     * @return bool
+     * @throws LocalizedException
+     */
+    public function isProductPageInstantCheckoutEnabled(int $websiteId): bool {
+        return $this->configManagement->isSetFlag(
+            self::PATH_IS_INSTANT_ON_PRODUCT_PAGE_ENABLED,
+            $websiteId
+        );
     }
 }
