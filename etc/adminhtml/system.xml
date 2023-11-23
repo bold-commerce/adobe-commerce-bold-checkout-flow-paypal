@@ -20,10 +20,6 @@
                     <comment>
                         <![CDATA[Enable or disable the PayPal Checkout Flow.]]></comment>
                 </field>
-                <field id="version" translate="label" type="note" sortOrder="1000" showInDefault="1" showInWebsite="1">
-                    <label>Module Version</label>
-                    <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Version</frontend_model>
-                </field>
             </group>
         </section>
     </system>
