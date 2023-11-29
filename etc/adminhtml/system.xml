@@ -24,8 +24,18 @@
                        showInWebsite="1">
                     <label>Enable on Product Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Bold\CheckoutFlowPaypal\Model\Config\Backend\InvalidateBlockBackend</backend_model>
                     <comment>
                         <![CDATA[Enable the Instant Checkout button on the product page.]]></comment>
+                </field>
+                <field id="instant_for" translate="label" type="multiselect" sortOrder="40" showInDefault="1"
+                       showInWebsite="1">
+                    <label>Enable on Product Page for</label>
+                    <source_model>Bold\CheckoutFlowPaypal\Model\Config\Source\ProductTypeSource</source_model>
+                    <backend_model>Bold\CheckoutFlowPaypal\Model\Config\Backend\InvalidateBlockBackend</backend_model>
+                    <depends>
+                        <field id="is_instant_product">1</field>
+                    </depends>
                 </field>
             </group>
         </section>

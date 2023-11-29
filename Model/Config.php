@@ -19,6 +19,7 @@ class Config
     private const PATH_TYPE = 'checkout/bold_checkout_base/type';
     private const PATH_IS_PAYPAL_FLOW_ENABLED = 'checkout/bold_checkout_paypal/is_enabled';
     private const PATH_IS_INSTANT_ON_PRODUCT_PAGE_ENABLED = 'checkout/bold_checkout_paypal/is_instant_product';
+    private const PATH_IS_INSTANT_ENABLED_FOR = 'checkout/bold_checkout_paypal/instant_for';
     private const PATH_PAYPAL_FLOW_ID = 'checkout/bold_checkout_paypal/flow_id';
 
     /**
@@ -48,10 +49,10 @@ class Config
      * @param TypeListInterface $cacheTypeList
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig,
+        ScopeConfigInterface      $scopeConfig,
         ConfigManagementInterface $configManagement,
-        WriterInterface $configWriter,
-        TypeListInterface $cacheTypeList
+        WriterInterface           $configWriter,
+        TypeListInterface         $cacheTypeList
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->configManagement = $configManagement;
@@ -66,7 +67,8 @@ class Config
      * @return bool
      * @throws LocalizedException
      */
-    public function getIsPaypalFlowEnabled(int $websiteId): bool {
+    public function getIsPaypalFlowEnabled(int $websiteId): bool
+    {
         return $this->configManagement->isSetFlag(
             self::PATH_IS_PAYPAL_FLOW_ENABLED,
             $websiteId
@@ -132,10 +134,33 @@ class Config
      * @return bool
      * @throws LocalizedException
      */
-    public function isProductPageInstantCheckoutEnabled(int $websiteId): bool {
+    public function isProductPageInstantCheckoutEnabled(int $websiteId): bool
+    {
         return $this->configManagement->isSetFlag(
             self::PATH_IS_INSTANT_ON_PRODUCT_PAGE_ENABLED,
             $websiteId
+        );
+    }
+
+    /**
+     * Get if the Instant Checkout button is enabled for Product type.
+     *
+     * @param int $websiteId
+     * @param string $productType
+     * @return bool
+     * @throws LocalizedException
+     */
+    public function isProductPageInstantCheckoutEnabledForType(int $websiteId, string $productType): bool
+    {
+        return in_array(
+            $productType,
+            explode(
+                ',',
+                $this->configManagement->getValue(
+                    self::PATH_IS_INSTANT_ENABLED_FOR,
+                    $websiteId
+                )
+            )
         );
     }
 }

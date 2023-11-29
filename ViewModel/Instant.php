@@ -6,9 +6,9 @@ namespace Bold\CheckoutFlowPaypal\ViewModel;
 
 use Bold\Checkout\Block\Onepage\Button;
 use Bold\CheckoutFlowPaypal\Model\Config;
+use Magento\Catalog\Block\Product\View;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Registry;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Asset\Repository;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
@@ -47,24 +47,32 @@ class Instant implements ArgumentInterface
     private $assetRepository;
 
     /**
+     * @var View
+     */
+    private $view;
+
+    /**
      * @param Config $config
      * @param StoreManagerInterface $storeManager
      * @param RequestInterface $request
      * @param UrlInterface $url
      * @param Repository $assetRepository
+     * @param View $view
      */
     public function __construct(
         Config                $config,
         StoreManagerInterface $storeManager,
         RequestInterface      $request,
         UrlInterface          $url,
-        Repository            $assetRepository
+        Repository            $assetRepository,
+        View                  $view
     ) {
         $this->config = $config;
         $this->storeManager = $storeManager;
         $this->request = $request;
         $this->url = $url;
         $this->assetRepository = $assetRepository;
+        $this->view = $view;
     }
 
     /**
@@ -76,9 +84,11 @@ class Instant implements ArgumentInterface
     public function enabledOnProductPage(): bool
     {
         $websiteId = (int)$this->storeManager->getWebsite()->getId();
+        $productType = $this->view->getProduct()->getTypeId();
 
         return $this->config->getIsPaypalFlowEnabled($websiteId)
-            && $this->config->isProductPageInstantCheckoutEnabled($websiteId);
+            && $this->config->isProductPageInstantCheckoutEnabled($websiteId)
+            && $this->config->isProductPageInstantCheckoutEnabledForType($websiteId, $productType);
     }
 
     /**

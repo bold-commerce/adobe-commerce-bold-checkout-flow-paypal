@@ -4,6 +4,8 @@
         <checkout>
             <bold_checkout_paypal>
                 <flow_id>paypal_branded</flow_id>
+                <is_instant_product>1</is_instant_product>
+                <instant_for>simple,virtual,downloadable,grouped,configurable,bundle,giftcard</instant_for>
             </bold_checkout_paypal>
         </checkout>
     </default>
