@@ -84,7 +84,7 @@ class Toggle extends Field
      */
     private function getLabel(): string
     {
-        return $this->isEnabled() ? 'Disable' : 'Enable';
+        return $this->isEnabled() ? 'Disable PayPal Checkout Flow' : 'Enable PayPal Checkout Flow';
     }
 
     /**

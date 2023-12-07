@@ -1,0 +1,25 @@
+#checkout_bold_checkout_paypal_status {
+    padding-top: 0;
+
+    .enabled {
+        color: green;
+        display: flex;
+        font-size: 1em;
+
+        &:before {
+            content: url('../images/enabled.svg');
+            margin-right: 0.5em;
+        }
+    }
+
+    .disabled {
+        display: flex;
+        color: red;
+        font-size: 1em;
+
+        &:before {
+            content: url('../images/disabled.svg');
+            margin-right: 0.5em;
+        }
+    }
+}
