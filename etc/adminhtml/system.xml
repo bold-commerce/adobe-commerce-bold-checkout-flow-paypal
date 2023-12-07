@@ -34,7 +34,7 @@
                 </field>
                 <field id="instant_for" translate="label" type="multiselect" sortOrder="40" showInDefault="1"
                        showInWebsite="1">
-                    <label>Enable on Product Page for</label>
+                    <label>Enable for Product Types</label>
                     <source_model>Bold\CheckoutFlowPaypal\Model\Config\Source\ProductTypeSource</source_model>
                     <backend_model>Bold\CheckoutFlowPaypal\Model\Config\Backend\InvalidateBlockBackend</backend_model>
                     <depends>
