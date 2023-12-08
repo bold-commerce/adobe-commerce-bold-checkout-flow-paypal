@@ -5,11 +5,14 @@
         <section id="checkout">
             <group id="bold_checkout_paypal" translate="label" sortOrder="115" showInDefault="1" showInWebsite="1">
                 <label>Bold Checkout PayPal Integration</label>
-                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                <field id="is_enabled" translate="label" type="hidden" sortOrder="10" showInDefault="1"
                        showInWebsite="1">
-                    <label>Is PayPal Checkout Flow Enabled?</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Disabled</frontend_model>
+                </field>
+                <field id="status" translate="label" type="note" sortOrder="10" showInDefault="1"
+                       showInWebsite="1">
+                    <label>Enable PayPal Checkout Flow</label>
+                    <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Status</frontend_model>
                     <comment>
                         <![CDATA[The PayPal Checkout Flow replaces all other Bold-hosted checkout flows.
                         Read more about Bold-hosted flows for Adobe Commerce stores in the <a href="https://developer.boldcommerce.com/guides/platform-integration/adobe-commerce/installation">documentation</a>.
@@ -17,8 +20,27 @@
                 </field>
                 <field id="toggle" translate="label" type="button" sortOrder="20" showInDefault="1" showInWebsite="1">
                     <frontend_model>Bold\CheckoutFlowPaypal\Block\System\Config\Form\Field\Toggle</frontend_model>
+                </field>
+                <field id="is_instant_product" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1">
+                    <label>Enable on Product Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Bold\CheckoutFlowPaypal\Model\Config\Backend\InvalidateBlockBackend</backend_model>
                     <comment>
-                        <![CDATA[Enable or disable the PayPal Checkout Flow.]]></comment>
+                        <![CDATA[Enable the Instant Checkout button on the product page.]]></comment>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="instant_for" translate="label" type="multiselect" sortOrder="40" showInDefault="1"
+                       showInWebsite="1">
+                    <label>Enable for Product Types</label>
+                    <source_model>Bold\CheckoutFlowPaypal\Model\Config\Source\ProductTypeSource</source_model>
+                    <backend_model>Bold\CheckoutFlowPaypal\Model\Config\Backend\InvalidateBlockBackend</backend_model>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                        <field id="is_instant_product">1</field>
+                    </depends>
                 </field>
             </group>
         </section>
