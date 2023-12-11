@@ -26,11 +26,13 @@ define([
                     icon: config.loaderIcon
                 }
             );
-            form.submit(() => {
-                location.href = config.checkoutUrl
-            });
             if (form.validation('isValid')) {
                 loader.loader('show');
+                customerData.get('cart').subscribe(
+                    () => {
+                        location.href = config.checkoutUrl
+                    }
+                );
                 form.submit();
             } else {
                 $(element).attr('disabled', false);
