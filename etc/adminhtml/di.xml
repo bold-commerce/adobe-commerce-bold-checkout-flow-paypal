@@ -6,4 +6,11 @@
             <argument name="client" xsi:type="object">Bold\Checkout\Model\Http\BoldClient</argument>
         </arguments>
     </type>
+    <type name="Bold\Checkout\Model\ClearModuleConfiguration">
+        <arguments>
+            <argument name="paths" xsi:type="array">
+                <item name="bold_checkout_paypal" xsi:type="string">checkout/bold_checkout_paypal/%</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
