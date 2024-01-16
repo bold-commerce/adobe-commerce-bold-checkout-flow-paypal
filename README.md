@@ -38,9 +38,7 @@ Supported features include:
 
 ## Constraints
 
-:::caution
-Bold currently supports one Bold-hosted Checkout flow in use at a time. Activating the PayPal Checkout Flow disables any currently enabled Bold-hosted Checkout flows.
-:::
+**CAUTION:** Bold currently supports one Bold-hosted Checkout flow in use at a time. Activating the PayPal Checkout Flow disables any currently enabled Bold-hosted Checkout flows.
 
 The PayPal Checkout Flow extension does not support the following features:
 
@@ -136,9 +134,7 @@ If the **Contact telephone number** setting is **On (required field)**, set your
 
 1. In the Adobe Commerce admin, navigate to **Stores** > **Configuration**.
 1. In the **Scope** drop-down menu at the top of the page, select **Main Website**.
-   :::note
-   This drop-down is titled **Store View** in Adobe Commerce versions earlier than 2.4.
-   :::
+   * **Note:** This drop-down is titled **Store View** in Adobe Commerce versions earlier than 2.4.
 1. In the left-hand menu of the **Configuration** page, navigate to **Customers** > **Customer Configuration**.
 1. Expand the **Name and Address Options** section.
 1. Set the **Show Telephone** field to **Required**.
