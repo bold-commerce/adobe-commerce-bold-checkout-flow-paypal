@@ -4,22 +4,21 @@ This extension replaces all other Bold-hosted Checkout Flows with the PayPal Che
 
 ## Table of Contents
 
-- [PayPal Checkout Flow](#paypal-checkout-flow)
-  - [Supported features](#supported-features)
-  - [Constraints](#constraints)
-  - [Prerequisites](#prerequisites)
-    - [Check Bold Checkout Integration version](#check-bold-checkout-integration-version)
-      - [Composer](#composer)
-      - [Adobe Commerce admin page](#adobe-commerce-admin-page)
-    - [Update versions \< 1.1.23](#update-versions--1123)
-  - [Installation](#installation)
-  - [Usage and Configuration](#usage-and-configuration)
-    - [Enable the PayPal Checkout Flow](#enable-the-paypal-checkout-flow)
-      - [(Optional) Configure "Buy Now with PayPal"](#optional-configure-buy-now-with-paypal-on-product-pages)
-    - [Verify PayPal Checkout Flow](#verify-paypal-checkout-flow)
-    - [Disable the PayPal Checkout Flow](#disable-the-paypal-checkout-flow)
-  - [Documentation](#documentation)
-  - [Support](#support)
+- [Supported features](#supported-features)
+- [Constraints](#constraints)
+- [Prerequisites](#prerequisites)
+  - [Check Bold Checkout Integration version](#check-bold-checkout-integration-version)
+    - [Composer](#composer)
+    - [Adobe Commerce admin page](#adobe-commerce-admin-page)
+  - [Update versions \< 1.1.23](#update-versions--1123)
+- [Installation](#installation)
+- [Usage and Configuration](#usage-and-configuration)
+  - [Enable the PayPal Checkout Flow](#enable-the-paypal-checkout-flow)
+    - [(Optional) Configure "Buy Now with PayPal"](#optional-configure-buy-now-with-paypal-on-product-pages)
+  - [Verify PayPal Checkout Flow](#verify-paypal-checkout-flow)
+  - [Disable the PayPal Checkout Flow](#disable-the-paypal-checkout-flow)
+- [Documentation](#documentation)
+- [Support](#support)
  
 ## Supported features
 
@@ -77,14 +76,6 @@ There are two ways to check the extension version: using a Composer command, or 
   * **Note:** This drop-down is titled **Store View** in Adobe Commerce versions earlier than 2.4.
 3. In the left-hand menu of the **Configuration** page, navigate to **Sales** > **Checkout**.
 4. Expand the **Bold Checkout Integration** section and find the **Version** field.
-
-### Update versions < 1.1.23
-
-If your version is earlier than `1.1.23`, run the following Composer command:
-
-```
-composer require bold-commerce/module-checkout:">=1.1.23"
-```
 
 ## Installation
 
