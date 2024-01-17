@@ -1,6 +1,6 @@
 {
   "name": "bold-commerce/module-checkout-flow-paypal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bold Checkout PayPal Flow Integration for Adobe Commerce",
   "type": "magento2-module",
   "require": {
