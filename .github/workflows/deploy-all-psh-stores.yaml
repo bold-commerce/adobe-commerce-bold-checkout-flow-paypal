@@ -8,7 +8,38 @@ on:
 
 jobs:
     update_stores:
-      uses: bold-commerce/github-actions/.github/workflows/deploy-all-platformsh-stores.yaml@main
-      secrets:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-        CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+      runs-on: ubuntu-latest
+      timeout-minutes: 15
+      steps:
+          - name: Install platform CLI
+            run: |
+              curl -fsSL https://raw.githubusercontent.com/platformsh/cli/main/installer.sh | bash
+
+          - name: Setup SSH key
+            run: |
+              mkdir -p ~/.ssh
+              echo -n '${{ secrets.SSH_KEY }}' > ~/.ssh/id_rsa
+              chmod 0600 ~/.ssh/id_rsa
+              ssh-keyscan -T 120 -H git.ca-1.platform.sh >> $HOME/.ssh/known_hosts
+              ssh-keyscan -T 120 -H git.us.platform.sh >> $HOME/.ssh/known_hosts
+
+          - name: Setup git
+            run: |
+              git config --global user.name "bold-github-ci"
+              git config --global user.email "github-ci@boldcommerce.com"
+
+          - name: Update projects
+            env:
+              PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+            run: |
+              PROJECTS=`platform project:list --pipe`
+              for PROJECT in $PROJECTS;
+              do
+                echo "Updating project $PROJECT"
+                platform project:get --no-interaction $PROJECT $PROJECT
+                cd $PROJECT
+                date > timestamp
+                git add timestamp
+                git commit -m "Update store"
+                platform push --no-wait
+              done
