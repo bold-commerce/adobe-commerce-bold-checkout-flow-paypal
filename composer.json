@@ -1,16 +1,16 @@
 {
   "name": "bold-commerce/module-checkout-flow-paypal",
-  "version": "1.0.1",
-  "description": "Bold Checkout PayPal Flow Integration for Adobe Commerce",
+  "description": "Bold Checkout PayPal Flow Integration for Adobe Commerce.",
   "type": "magento2-module",
-  "require": {
-    "magento/framework": ">=102.0.2 <103.0.7",
-    "magento/module-store": ">=101.0.2 <101.1.7",
-    "bold-commerce/module-checkout": "^1.1.24"
-  },
   "license": [
     "MIT"
   ],
+  "version": "1.0.1",
+  "require": {
+    "bold-commerce/module-checkout": "^1.1.24",
+    "magento/framework": ">=102.0.2 <103.0.8",
+    "magento/module-store": ">=101.0.2 <101.1.8"
+  },
   "autoload": {
     "files": [
       "registration.php"
