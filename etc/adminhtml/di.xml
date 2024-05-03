@@ -13,4 +13,10 @@
             </argument>
         </arguments>
     </type>
+    <type name="Bold\Checkout\Block\System\Config\Form\Field\Location">
+        <plugin
+            name="bold_checkout_flow_paypal_add_life_option"
+            type="Bold\CheckoutFlowPaypal\Plugin\Checkout\Block\System\Config\Form\Field\Location\AddPayPalOptionPlugin"
+        />
+    </type>
 </config>
