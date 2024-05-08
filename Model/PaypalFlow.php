@@ -43,6 +43,9 @@ class PaypalFlow
     public function toggle(int $websiteId): bool
     {
         $status = $this->config->getIsPaypalFlowEnabled($websiteId);
+        if (!$status) {
+            $this->config->setIsInstantForDefault($websiteId);
+        }
 
         return $status ? $this->disable($websiteId) : $this->enable($websiteId);
     }
@@ -60,11 +63,9 @@ class PaypalFlow
             $url = sprintf(self::FLOW_DISABLE_URL, $flowId);
             $response = $this->client->delete($websiteId, $url, []);
             if ($response->getErrors()) {
-
                 return false;
             }
         } catch (\Exception $exception) {
-
             return false;
         }
         $this->config->setIsPaypalFlowEnabled($websiteId, false);

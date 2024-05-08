@@ -42,4 +42,5 @@ jobs:
                 git add timestamp
                 git commit -m "Update store"
                 platform push --no-wait
+                cd ..
               done
