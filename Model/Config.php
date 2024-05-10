@@ -21,6 +21,7 @@ class Config
     private const PATH_IS_INSTANT_ON_PRODUCT_PAGE_ENABLED = 'checkout/bold_checkout_paypal/is_instant_product';
     private const PATH_IS_INSTANT_ENABLED_FOR = 'checkout/bold_checkout_paypal/instant_for';
     private const PATH_PAYPAL_FLOW_ID = 'checkout/bold_checkout_paypal/flow_id';
+    private const DEFAULT_VALUE_IS_INSTANT = 'simple,virtual,downloadable,grouped,configurable,bundle,giftcard';
 
     /**
      * @var ScopeConfigInterface
@@ -152,15 +153,20 @@ class Config
      */
     public function isProductPageInstantCheckoutEnabledForType(int $websiteId, string $productType): bool
     {
-        return in_array(
-            $productType,
-            explode(
-                ',',
-                $this->configManagement->getValue(
-                    self::PATH_IS_INSTANT_ENABLED_FOR,
-                    $websiteId
-                )
-            )
+        $options = $this->configManagement->getValue(
+            self::PATH_IS_INSTANT_ENABLED_FOR,
+            $websiteId
+        );
+
+        return in_array($productType, explode(',', $options ?? ''));
+    }
+
+    public function setIsInstantForDefault(int $websiteId): void {
+        $this->configWriter->save(
+            self::PATH_IS_INSTANT_ENABLED_FOR,
+            self::DEFAULT_VALUE_IS_INSTANT,
+            $websiteId ? ScopeInterface::SCOPE_WEBSITES : ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+            $websiteId
         );
     }
 }
